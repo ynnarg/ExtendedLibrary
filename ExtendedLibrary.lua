@@ -14,6 +14,9 @@ Methods:
 	
 	:GetExtension(string extensionName) -> Extension
 		>	Returns a required Extension called 'extensionName'. Will error if there is not an extension called 'extensionName'.
+	
+	:GetGlobal(string globalName) -> Global
+		>	Returns a required Global called 'globalName'. Will error if there is not a global called 'globalName'.
 
 ]]
 
@@ -23,20 +26,28 @@ local ExtendedLibrary = {}
 
 local services = script:WaitForChild("Services")
 local extensions = script:WaitForChild("Extensions")
+local globals = script:WaitForChild("Globals")
 
 --// Public Methods
 
 function ExtendedLibrary:GetService(serviceName)
-	assert(services:FindFirstChild(serviceName), serviceName .. " is not a valid service of the ExtendedLibrary services! <ExtendedLibrary:GetService()>")
+	assert(services:FindFirstChild(serviceName), serviceName .. " is not a valid service of ExtendedLibrary! <ExtendedLibrary:GetService()>")
 	
 	return require(services[serviceName])	
 end
 
 
 function ExtendedLibrary:GetExtension(extensionName)
-	assert(extensions:FindFirstChild(extensionName), extensionName .. " is not a valid extension of the ExtendedLibrary extensions! <ExtendedLibrary:GetService()>")
+	assert(extensions:FindFirstChild(extensionName), extensionName .. " is not a valid extension of ExtendedLibrary! <ExtendedLibrary:GetExtension()>")
 	
 	return require(extensions[extensionName])
+end
+
+
+function ExtendedLibrary:GetGlobal(globalName)
+	assert(globals:FindFirstChild(globalName), globalName .. " is not a valid global of ExtendedLibrary! <ExtendedLibrary:GetGlobal()>")
+	
+	return require(globals[globalName])
 end
 
 --// Return
