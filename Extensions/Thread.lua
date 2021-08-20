@@ -1,4 +1,10 @@
 
+----- BEGIN GITHUB NOTE -----[[
+
+THIS FILE IS A MODULESCRIPT.
+
+----- END GITHUB NOTE -----]]
+
 --// API
 --[[
 
