@@ -13,7 +13,7 @@ Methods:
 		>	Creates a new Webhook object using the 'webhook' string argument.
 	
 	.Embed(string title, string description, string url, variant<number, Color3> color, ...dict<string name, string value>) -> Embed
-		>	Creates a new Embed dictionary using the
+		>	Creates a new Embed.
 
 Objects:
 	Webhook => {
